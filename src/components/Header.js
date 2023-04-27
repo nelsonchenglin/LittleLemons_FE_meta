@@ -9,12 +9,12 @@ import {
   DrawerContent,
   DrawerCloseButton,
   VStack,
-  Text,
-  HStack,
   Button,
+  HStack,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "../assets/Logo.svg";
+import { Link } from "react-router-dom";
 
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -22,13 +22,15 @@ function Header() {
   return (
     <Flex
       width="100%"
-      px={{ base: "4", md: "6" }}
-      py={{ base: "3", md: "5" }}
+      px={{ base: "4", md: "10" }}
+      py={{ base: "3", md: "5 " }}
       align="center"
       justify="space-between"
+      borderBottom="1px solid lightgray"
     >
-      <Image src={Logo} alt="logo" />
-
+      <a href="/">
+        <Image src={Logo} alt="logo" height={50} />
+      </a>
       {/* Hamburger icon */}
       <IconButton
         aria-label="Open navigation menu"
@@ -44,16 +46,20 @@ function Header() {
           <DrawerCloseButton />
 
           <VStack spacing="6" align="stretch" py="12" px="4">
-            <Text fontWeight="bold">Menu</Text>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/menu">Menu</a>
-            <a href="/reservations">Reservations</a>
-            <a href="/order-online">Order Online</a>
-
-            {/* Close button */}
-            <Button colorScheme="blue" onClick={onClose}>
-              Close
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/menu">Menu</Link>
+            <Link to="/reservations">Reservations</Link>
+            <Link to="/order-online">Order Online</Link>
+            <Button colorScheme="blue" onClick={() => console.log("Sign up")}>
+              Sign up
+            </Button>
+            <Button
+              colorScheme="blue"
+              onClick={() => console.log("Log in")}
+              variant="outline"
+            >
+              Log in
             </Button>
           </VStack>
         </DrawerContent>
@@ -66,9 +72,19 @@ function Header() {
         <a href="/menu">Menu</a>
         <a href="/reservations">Reservations</a>
         <a href="/order-online">Order Online</a>
-        <a href="/login">Login</a>
+        <Button colorScheme="blue" onClick={() => console.log("Sign up")}>
+          Sign up
+        </Button>
+        <Button
+          colorScheme="blue"
+          onClick={() => console.log("Log in")}
+          variant="outline"
+        >
+          Log in
+        </Button>
       </HStack>
     </Flex>
   );
 }
+
 export default Header;
