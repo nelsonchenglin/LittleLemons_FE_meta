@@ -36,8 +36,7 @@ code {
   font-size: 2.5vw;
   color: white;
   text-align: center;
-  width: 80%;
-  height: 50%
+  width: 80%
 }
 
 .landing-description-container p{
@@ -77,6 +76,7 @@ code {
     transform: translate(-50%, -50%);
     right: 0;
     bottom: 0;
-    vertical-align:top
+    vertical-align:top;
+    height: 50%
   }
 }
