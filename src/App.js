@@ -6,10 +6,8 @@ import Routes from "./Routes";
 function App() {
   return (
     <ChakraProvider>
-      <main>
-        <Header />
-        <Routes />
-      </main>
+      <Header />
+      <Routes />
     </ChakraProvider>
   );
 }
