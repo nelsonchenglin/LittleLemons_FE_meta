@@ -46,42 +46,50 @@ function Header() {
           <DrawerCloseButton />
 
           <VStack spacing="6" align="stretch" py="12" px="4">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/menu">Menu</Link>
-            <Link to="/reservations">Reservations</Link>
-            <Link to="/order-online">Order Online</Link>
-            <Button colorScheme="blue" onClick={() => console.log("Sign up")}>
-              Sign up
-            </Button>
-            <Button
-              colorScheme="blue"
-              onClick={() => console.log("Log in")}
-              variant="outline"
-            >
-              Log in
-            </Button>
+            <Link to="/" onClick={onClose}>
+              Home
+            </Link>
+            <Link to="/about" onClick={onClose}>
+              About
+            </Link>
+            <Link to="/menu" onClick={onClose}>
+              Menu
+            </Link>
+            <Link to="/reservations" onClick={onClose}>
+              Reservations
+            </Link>
+            <Link to="/order-online" onClick={onClose}>
+              Order Online
+            </Link>
+            <Link to="/signup">
+              <Button colorScheme="blue" onClick={onClose}>
+                Sign up
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button colorScheme="blue" variant="outline" onClick={onClose}>
+                Log in
+              </Button>
+            </Link>
           </VStack>
         </DrawerContent>
       </Drawer>
 
       {/* Desktop navigation menu */}
       <HStack as="nav" spacing="5" display={{ base: "none", md: "flex" }}>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/menu">Menu</a>
-        <a href="/reservations">Reservations</a>
-        <a href="/order-online">Order Online</a>
-        <Button colorScheme="blue" onClick={() => console.log("Sign up")}>
-          Sign up
-        </Button>
-        <Button
-          colorScheme="blue"
-          onClick={() => console.log("Log in")}
-          variant="outline"
-        >
-          Log in
-        </Button>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/menu">Menu</Link>
+        <Link to="/reservations">Reservations</Link>
+        <Link to="/order-online">Order Online</Link>
+        <Link to="/signup">
+          <Button colorScheme="blue">Sign up</Button>
+        </Link>
+        <Link to="/login">
+          <Button colorScheme="blue" variant="outline">
+            Log in
+          </Button>
+        </Link>
       </HStack>
     </Flex>
   );
