@@ -42,7 +42,8 @@ code {
 .landing-description-container p{
   background-color: rgba(255, 255, 255 ,0.7);
   color: black;
-  padding: 2vw
+  padding: 2vw;
+  border-radius: 3rem
 }
 
 @media screen and (max-width: 821px) {

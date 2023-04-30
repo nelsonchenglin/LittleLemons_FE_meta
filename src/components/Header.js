@@ -18,20 +18,8 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "../assets/Logo.svg";
 import { Link } from "react-router-dom";
 
-const customTheme = extendTheme({
-  breakpoints: {
-    custom: "875px",
-  },
-}); // eslint-disable-line no-unused-vars
-
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const showHamburger = useBreakpointValue({
-    base: "block",
-    md: "none",
-    custom: "none",
-  });
 
   return (
     <>
@@ -50,7 +38,7 @@ function Header() {
         <IconButton
           aria-label="Open navigation menu"
           icon={<HamburgerIcon />}
-          display={showHamburger}
+          display={{ base: "block", md: "block", lg: "none" }}
           onClick={onOpen}
         />
 
@@ -91,7 +79,11 @@ function Header() {
         </Drawer>
 
         {/* Desktop navigation menu */}
-        <HStack as="nav" spacing="5" display={{ base: "none", md: "flex" }}>
+        <HStack
+          as="nav"
+          spacing="5"
+          display={{ base: "none", md: "none", lg: "flex" }}
+        >
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/menu">Menu</Link>
