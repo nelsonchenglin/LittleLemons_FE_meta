@@ -1,6 +1,8 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 import Image from "../assets/landingBackground.jpeg";
+import Specials from "./Specials";
+import Footer from "./Footer";
 
 function Landing() {
   return (
@@ -21,6 +23,10 @@ function Landing() {
           delight your taste buds.`}
           </p>
         </Box>
+      </Box>
+      <Box>
+        <Specials />
+        <Footer />
       </Box>
     </>
   );

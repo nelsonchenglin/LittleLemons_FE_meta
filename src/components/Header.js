@@ -11,8 +11,6 @@ import {
   VStack,
   Button,
   HStack,
-  extendTheme,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "../assets/Logo.svg";
