@@ -68,6 +68,7 @@ function Specials() {
             size={{ base: "sm", md: "md" }}
             mt={{ base: 2, md: 0 }}
             marginTop="0px"
+            backgroundColor="#EE9972"
           >
             View Menu
           </Button>
@@ -100,9 +101,9 @@ function Specials() {
                 <Text>{item.price}</Text>
               </HStack>
             </CardHeader>
-            <CardBody>{item.description}</CardBody>
+            <CardBody fontStyle={"italic"}>{item.description}</CardBody>
             <CardFooter color="blue">
-              <Link to="/order-online">Order a delivery!</Link>
+              <Link to="/order-online">Order for delivery!</Link>
             </CardFooter>
           </Card>
         ))}

@@ -10,36 +10,12 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 
-function ReservationsForm() {
+function ReservationsForm({ availableTimes = [], dispatch }) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [numGuests, setNumGuests] = useState("");
   const [occasion, setOccasion] = useState("");
   const [name, setName] = useState("");
-
-  const resTimes = [
-    "11:00 AM",
-    "11:30 AM",
-    "12:00 PM",
-    "12:30 PM",
-    "01:00 PM",
-    "01:30 PM",
-    "02:00 PM",
-    "02:30 PM",
-    "03:00 PM",
-    "03:30 PM",
-    "04:00 PM",
-    "04:30 PM",
-    "05:00 PM",
-    "05:30 PM",
-    "06:00 PM",
-    "06:30 PM",
-    "07:00 PM",
-    "07:30 PM",
-    "08:00 PM",
-    "08:30 PM",
-    "09:00 PM",
-  ];
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -55,6 +31,11 @@ function ReservationsForm() {
     );
   };
 
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+    dispatch({ type: "UPDATE_TIMES", date: e.target.value });
+  };
+
   return (
     <Box maxWidth="500px" margin="auto" height="100vh">
       <Text fontSize="xl" fontWeight="bold" marginBottom="1rem">
@@ -68,6 +49,7 @@ function ReservationsForm() {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            border="0px solid black"
           />
         </FormControl>
         <FormControl isRequired>
@@ -76,7 +58,7 @@ function ReservationsForm() {
             type="date"
             id="date"
             value={date}
-            onChange={(event) => setDate(event.target.value)}
+            onChange={handleDateChange}
           />
         </FormControl>
         <FormControl isRequired marginTop="1rem">
@@ -86,7 +68,7 @@ function ReservationsForm() {
             value={time}
             onChange={(e) => setTime(e.target.value)}
           >
-            {resTimes.map((time) => (
+            {availableTimes.map((time) => (
               <option key={time} value={time}>
                 {time}
               </option>
@@ -134,5 +116,9 @@ function ReservationsForm() {
     </Box>
   );
 }
+
+// ReservationsForm.propTypes = {
+//   availableTimes: PropTypes.arrayOf(PropTypes.string).isRequired,
+// };
 
 export default ReservationsForm;
