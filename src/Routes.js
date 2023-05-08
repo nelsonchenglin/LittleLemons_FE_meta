@@ -7,6 +7,7 @@ import Reservations from "./components/Reservations";
 import Order from "./components/Order";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import ConfirmedBooking from "./components/ConfirmedBooking";
 
 function URLPaths() {
   return (
@@ -18,6 +19,7 @@ function URLPaths() {
       <Route path="/order-online" element={<Order />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/confirmed" element={<ConfirmedBooking />} />
     </Routes>
   );
 }

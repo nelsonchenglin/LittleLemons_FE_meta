@@ -10,30 +10,36 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 
-function ReservationsForm({ availableTimes = [], dispatch }) {
+function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [numGuests, setNumGuests] = useState("");
+  const [numGuests, setNumGuests] = useState("1");
   const [occasion, setOccasion] = useState("");
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log({
-      name,
-      date,
-      time,
-      numGuests,
-      occasion,
-    });
-    alert(
-      `Thank you for your reservation, ${name}. We look forward to your visit!`
-    );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = {
+      Name: name,
+      Email: email,
+      Date: date,
+      Time: time,
+      "Reservation Size": numGuests,
+      Occasion: occasion,
+    };
+    console.log(formData);
+    submitForm(formData);
   };
 
   const handleDateChange = (e) => {
+    console.log("handledatechange", e.target.value);
     setDate(e.target.value);
-    dispatch({ type: "UPDATE_TIMES", date: e.target.value });
+    setTime("");
+    dispatch({
+      type: "UPDATE_TIMES",
+      payload: e.target.value,
+    });
   };
 
   return (
@@ -49,7 +55,16 @@ function ReservationsForm({ availableTimes = [], dispatch }) {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            border="0px solid black"
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel htmlFor="email">Email</FormLabel>
+          <Input
+            type="email"
+            id="email"
+            value={email}
+            pattern="^\S+@\S+\.\S+$"
+            onChange={(e) => setEmail(e.target.value)}
           />
         </FormControl>
         <FormControl isRequired>
@@ -61,22 +76,22 @@ function ReservationsForm({ availableTimes = [], dispatch }) {
             onChange={handleDateChange}
           />
         </FormControl>
+        <p>We only offer reservations for dinner hours!</p>
         <FormControl isRequired marginTop="1rem">
           <FormLabel htmlFor="time">Time</FormLabel>
           <Select
+            type="time"
             id="time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
           >
+            <option value="">- Choose Reservation Time -</option>
             {availableTimes.map((time) => (
               <option key={time} value={time}>
                 {time}
               </option>
             ))}
           </Select>
-          <p style={{ fontWeight: "bold", fontStyle: "italic" }}>
-            Reservations are only available from 11:00 AM to 9:00 PM.
-          </p>
         </FormControl>
         <FormControl isRequired marginTop="1rem">
           <FormLabel htmlFor="numGuests">Number of Guests</FormLabel>
