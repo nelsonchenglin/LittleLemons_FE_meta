@@ -3,6 +3,8 @@ import {
   Box,
   Button,
   FormControl,
+  FormErrorMessage,
+  FormHelperText,
   FormLabel,
   Input,
   Select,
@@ -17,6 +19,7 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
   const [occasion, setOccasion] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [dateError, setDateError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +36,14 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
   };
 
   const handleDateChange = (e) => {
-    console.log("handledatechange", e.target.value);
+    const inputDate = new Date(e.target.value);
+    const today = new Date();
+    if (inputDate < today) {
+      setDateError("Reservations can only be made for future dates.");
+    } else {
+      setDateError("");
+    }
+
     setDate(e.target.value);
     setTime("");
     dispatch({
@@ -47,17 +57,24 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
       <Text fontSize="xl" fontWeight="bold" marginBottom="1rem">
         Reservation Form
       </Text>
+      <Text fontSize="s" fontWeight="bold" fontStyle="italic">
+        All fields with <span style={{ color: "red" }}>* </span>are required
+      </Text>
+      &nbsp;
       <form onSubmit={handleSubmit}>
-        <FormControl isRequired>
+        <FormControl isRequired isInvalid={!name}>
           <FormLabel htmlFor="name">Name</FormLabel>
           <Input
             type="name"
             id="name"
             value={name}
+            pattern="^[A-za-z\s]+$"
             onChange={(e) => setName(e.target.value)}
+            title="Alphabetical characters and spaces only."
+            aria-invalid={!name}
           />
         </FormControl>
-        <FormControl isRequired>
+        <FormControl isRequired isInvalid={!email}>
           <FormLabel htmlFor="email">Email</FormLabel>
           <Input
             type="email"
@@ -65,25 +82,31 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
             value={email}
             pattern="^\S+@\S+\.\S+$"
             onChange={(e) => setEmail(e.target.value)}
+            aria-invalid={!email}
           />
         </FormControl>
-        <FormControl isRequired>
+        <FormControl isRequired isInvalid={dateError}>
           <FormLabel htmlFor="date">Date</FormLabel>
           <Input
             type="date"
             id="date"
             value={date}
             onChange={handleDateChange}
+            aria-invalid={dateError}
           />
+          <FormErrorMessage style={{ fontWeight: "bold", fontStyle: "italic" }}>
+            {dateError}
+          </FormErrorMessage>
         </FormControl>
-        <p>We only offer reservations for dinner hours!</p>
-        <FormControl isRequired marginTop="1rem">
+
+        <FormControl isRequired marginTop="1rem" isInvalid={!time}>
           <FormLabel htmlFor="time">Time</FormLabel>
           <Select
             type="time"
             id="time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
+            aria-invalid={!time}
           >
             <option value="">- Choose Reservation Time -</option>
             {availableTimes.map((time) => (
@@ -92,28 +115,31 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
               </option>
             ))}
           </Select>
+          <FormHelperText style={{ fontWeight: "bold", fontStyle: "italic" }}>
+            We are currently only offering reservations for dinner.
+          </FormHelperText>
         </FormControl>
         <FormControl isRequired marginTop="1rem">
-          <FormLabel htmlFor="numGuests">Number of Guests</FormLabel>
+          <FormLabel htmlFor="numGuests">Party Size</FormLabel>
           <Select
             id="numGuests"
             value={numGuests}
             onChange={(event) => setNumGuests(event.target.value)}
           >
-            <option value="1">1 guest</option>
-            <option value="2">2 guests</option>
-            <option value="3">3 guests</option>
-            <option value="4">4 guests</option>
-            <option value="5">5 guests</option>
-            <option value="6">6 guests</option>
-            <option value="7">7 guests</option>
-            <option value="8">8 guests</option>
-            <option value="9">9 guests</option>
-            <option value="10">10 guests</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="9">9</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
           </Select>
-          <p style={{ fontWeight: "bold", fontStyle: "italic" }}>
-            For parties larger than 10 please call us!
-          </p>
+          <FormHelperText style={{ fontWeight: "bold", fontStyle: "italic" }}>
+            For parties larger than 10 please call us.
+          </FormHelperText>
         </FormControl>
         <FormControl marginTop="1rem">
           <FormLabel htmlFor="occasion">Occasion (optional)</FormLabel>

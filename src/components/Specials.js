@@ -42,6 +42,7 @@ function Specials() {
       image: lemonDessert,
     },
   ];
+
   return (
     <Box backgroundColor="#495E57">
       <Box
@@ -63,7 +64,7 @@ function Specials() {
         >
           Specials
         </Text>
-        <Link to="/menu">
+        <Link to="/order-online">
           <Button
             size={{ base: "sm", md: "md" }}
             mt={{ base: 2, md: 0 }}

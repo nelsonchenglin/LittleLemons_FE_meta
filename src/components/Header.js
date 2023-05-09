@@ -53,9 +53,7 @@ function Header() {
               <Link to="/about" onClick={onClose}>
                 About
               </Link>
-              <Link to="/menu" onClick={onClose}>
-                Menu
-              </Link>
+
               <Link to="/reservations" onClick={onClose}>
                 Reservations
               </Link>
@@ -84,7 +82,6 @@ function Header() {
         >
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
-          <Link to="/menu">Menu</Link>
           <Link to="/reservations">Reservations</Link>
           <Link to="/order-online">Order Online</Link>
           <Link to="/signup">
