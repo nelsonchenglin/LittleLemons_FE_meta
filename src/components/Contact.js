@@ -43,16 +43,19 @@ const Contact = () => {
           onSubmit={handleSubmit}
         >
           <FormControl id="formName" isRequired>
-            <FormLabel>Name</FormLabel>
+            <FormLabel htmlFor="formName">Name</FormLabel>
             <Input
               type="text"
               borderColor="black"
               value={formName}
+              pattern="^[A-za-z\s]+$"
               onChange={(e) => setFormName(e.target.value)}
+              title="Alphabetical characters and spaces only."
+              aria-invalid={!name}
             />
           </FormControl>
           <FormControl id="formEmail" isRequired mt={4}>
-            <FormLabel>Email address</FormLabel>
+            <FormLabel htmlFor="formEmail">Email address</FormLabel>
             <Input
               type="email"
               borderColor="black"
@@ -61,7 +64,7 @@ const Contact = () => {
             />
           </FormControl>
           <FormControl id="message" isRequired mt={4}>
-            <FormLabel>Message</FormLabel>
+            <FormLabel htmlFor="message">Message</FormLabel>
             <Textarea
               borderColor="black"
               value={message}

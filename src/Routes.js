@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Landing from "./components/Landing";
 import About from "./components/About";
 import Reservations from "./components/Reservations";
-import Order from "./components/Order";
+import Menu from "./components/Menu";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import ConfirmedBooking from "./components/ConfirmedBooking";
@@ -15,7 +15,7 @@ function URLPaths() {
       <Route path="/" element={<Landing />} />
       <Route path="/about" element={<About />} />
       <Route path="/reservations" element={<Reservations />} />
-      <Route path="/order-online" element={<Order />} />
+      <Route path="/menu" element={<Menu />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/confirmed" element={<ConfirmedBooking />} />

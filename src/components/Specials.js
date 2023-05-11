@@ -64,7 +64,7 @@ function Specials() {
         >
           Specials
         </Text>
-        <Link to="/order-online">
+        <Link to="/menu">
           <Button
             size={{ base: "sm", md: "md" }}
             mt={{ base: 2, md: 0 }}
@@ -92,7 +92,11 @@ function Specials() {
             <CardHeader>
               <img
                 src={item.image}
-                style={{ objectFit: "cover", width: "100%" }}
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  maxHeight: "276px",
+                }}
               />
               <HStack
                 justifyContent={"space-between"}
@@ -104,7 +108,7 @@ function Specials() {
             </CardHeader>
             <CardBody fontStyle={"italic"}>{item.description}</CardBody>
             <CardFooter color="blue">
-              <Link to="/order-online">Order for delivery!</Link>
+              <Link to="/menu">View Menu</Link>
             </CardFooter>
           </Card>
         ))}

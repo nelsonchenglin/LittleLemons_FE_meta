@@ -12,8 +12,11 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 
+const today = new Date();
+today.setDate(today.getDate() + 1);
+
 function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(today.toISOString().slice(0, 10));
   const [time, setTime] = useState("");
   const [numGuests, setNumGuests] = useState("1");
   const [occasion, setOccasion] = useState("");
@@ -38,7 +41,7 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
   const handleDateChange = (e) => {
     const inputDate = new Date(e.target.value);
     const today = new Date();
-    if (inputDate < today) {
+    if (inputDate <= today) {
       setDateError("Reservations can only be made for future dates.");
     } else {
       setDateError("");
@@ -65,6 +68,7 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
         <FormControl isRequired isInvalid={!name}>
           <FormLabel htmlFor="name">Name</FormLabel>
           <Input
+            borderColor="black"
             type="name"
             id="name"
             value={name}
@@ -77,6 +81,7 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
         <FormControl isRequired isInvalid={!email}>
           <FormLabel htmlFor="email">Email</FormLabel>
           <Input
+            borderColor="black"
             type="email"
             id="email"
             value={email}
@@ -88,6 +93,7 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
         <FormControl isRequired isInvalid={dateError}>
           <FormLabel htmlFor="date">Date</FormLabel>
           <Input
+            borderColor="black"
             type="date"
             id="date"
             value={date}
@@ -102,6 +108,7 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
         <FormControl isRequired marginTop="1rem" isInvalid={!time}>
           <FormLabel htmlFor="time">Time</FormLabel>
           <Select
+            borderColor="black"
             type="time"
             id="time"
             value={time}
@@ -124,6 +131,7 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
           <Select
             id="numGuests"
             value={numGuests}
+            borderColor="black"
             onChange={(event) => setNumGuests(event.target.value)}
           >
             <option value="1">1</option>
@@ -144,6 +152,7 @@ function ReservationsForm({ availableTimes = [], dispatch, submitForm }) {
         <FormControl marginTop="1rem">
           <FormLabel htmlFor="occasion">Occasion (optional)</FormLabel>
           <Textarea
+            borderColor="black"
             id="occasion"
             placeholder="Enter the occasion (e.g. birthday, anniversary)"
             value={occasion}

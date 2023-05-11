@@ -16,10 +16,9 @@ const About = () => {
               About Little Lemon
             </Heading>
             <Text fontSize="xl">
-              Little Lemon is a Mediterranean restaurant that serves authentic
-              dishes made with fresh ingredients. Our menu features a variety of
-              appetizers, salads, entrees, and desserts that will take you on a
-              culinary journey through the Mediterranean.
+              Little Lemon is a charming neighborhood bistro that servers simple
+              food and classic cocktails in a lively but casual environment. The
+              restaurant features a locally sourced menu with daily specials
             </Text>
             <Text fontSize="xl" mt={4}>
               We believe that food should be both delicious and nutritious, and
@@ -27,6 +26,19 @@ const About = () => {
               talented chefs have years of experience creating flavorful meals
               that are sure to satisfy any palate.
             </Text>
+            <Box mt={4}>
+              <Link to="/contact-us">
+                <Heading
+                  as="h1"
+                  size="lg"
+                  mb={4}
+                  color="blue"
+                  textDecoration="underline"
+                >
+                  Contact us
+                </Heading>
+              </Link>
+            </Box>
           </Box>
           <Box flex={{ md: 1 }}>
             <Image
@@ -38,18 +50,6 @@ const About = () => {
             />
           </Box>
         </Box>
-        &nbsp;
-        <Link to="/contact-us">
-          <Heading
-            as="h1"
-            size="xl"
-            mb={4}
-            color="blue"
-            textDecoration="underline"
-          >
-            Contact us
-          </Heading>
-        </Link>
       </Container>
     </Box>
   );

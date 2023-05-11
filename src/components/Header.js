@@ -28,6 +28,7 @@ function Header() {
         align="center"
         justify="space-between"
         borderBottom="1px solid lightgray"
+        backgroundColor="#EDEFEE"
       >
         <a href="/">
           <Image src={Logo} alt="logo" height={50} />
@@ -57,8 +58,11 @@ function Header() {
               <Link to="/reservations" onClick={onClose}>
                 Reservations
               </Link>
-              <Link to="/order-online" onClick={onClose}>
-                Order Online
+              <Link to="/menu" onClick={onClose}>
+                Menu
+              </Link>
+              <Link to="/contact-us" onClick={onClose}>
+                Contact
               </Link>
               <Link to="/signup">
                 <Button colorScheme="blue" onClick={onClose}>
@@ -83,7 +87,8 @@ function Header() {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/reservations">Reservations</Link>
-          <Link to="/order-online">Order Online</Link>
+          <Link to="/menu">Menu</Link>
+          <Link to="/contact-us">Contact</Link>
           <Link to="/signup">
             <Button colorScheme="blue">Sign up</Button>
           </Link>
