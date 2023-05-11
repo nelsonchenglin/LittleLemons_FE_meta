@@ -1,6 +1,8 @@
 import { Box, Container, Heading, Text, Image } from "@chakra-ui/react";
 import Chefs from "../assets/chefs.jpg";
 import { Link } from "react-router-dom";
+import basket1 from "../assets/basket .svg";
+import basket2 from "../assets/Basket.svg";
 
 const About = () => {
   return (

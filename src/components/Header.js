@@ -30,15 +30,16 @@ function Header() {
         borderBottom="1px solid lightgray"
         backgroundColor="#EDEFEE"
       >
-        <a href="/">
+        <Link to="/">
           <Image src={Logo} alt="logo" height={50} />
-        </a>
+        </Link>
         {/* Hamburger icon */}
         <IconButton
           aria-label="Open navigation menu"
           icon={<HamburgerIcon />}
           display={{ base: "block", md: "block", lg: "none" }}
           onClick={onOpen}
+          color="#333333"
         />
 
         {/* Mobile navigation menu */}
@@ -47,7 +48,13 @@ function Header() {
           <DrawerContent>
             <DrawerCloseButton />
 
-            <VStack spacing="6" align="stretch" py="12" px="4">
+            <VStack
+              spacing="6"
+              align="stretch"
+              py="12"
+              px="4"
+              fontWeight="semibold"
+            >
               <Link to="/" onClick={onClose}>
                 Home
               </Link>
@@ -64,16 +71,6 @@ function Header() {
               <Link to="/contact-us" onClick={onClose}>
                 Contact
               </Link>
-              <Link to="/signup">
-                <Button colorScheme="blue" onClick={onClose}>
-                  Sign up
-                </Button>
-              </Link>
-              <Link to="/login">
-                <Button colorScheme="blue" variant="outline" onClick={onClose}>
-                  Log in
-                </Button>
-              </Link>
             </VStack>
           </DrawerContent>
         </Drawer>
@@ -81,22 +78,15 @@ function Header() {
         {/* Desktop navigation menu */}
         <HStack
           as="nav"
-          spacing="5"
+          spacing="16"
           display={{ base: "none", md: "none", lg: "flex" }}
+          fontWeight="semibold"
         >
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/reservations">Reservations</Link>
           <Link to="/menu">Menu</Link>
           <Link to="/contact-us">Contact</Link>
-          <Link to="/signup">
-            <Button colorScheme="blue">Sign up</Button>
-          </Link>
-          <Link to="/login">
-            <Button colorScheme="blue" variant="outline">
-              Log in
-            </Button>
-          </Link>
         </HStack>
       </Flex>
     </>
