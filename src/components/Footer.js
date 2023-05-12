@@ -8,7 +8,7 @@ function Footer() {
       <Flex align="center" justify="center" flexWrap="wrap">
         <IconButton
           as="a"
-          href="#"
+          href="https://www.instagram.com"
           aria-label="Instagram"
           icon={<FaInstagram />}
           variant="ghost"
@@ -18,7 +18,7 @@ function Footer() {
         />
         <IconButton
           as="a"
-          href="#"
+          href="https://www.yelp.com"
           aria-label="Yelp"
           icon={<FaYelp />}
           variant="ghost"
@@ -38,7 +38,6 @@ function Footer() {
         />
         <Link to="/contact-us">
           <IconButton
-            as="a"
             aria-label="Contact Us"
             icon={<FaEnvelope />}
             variant="ghost"
@@ -48,7 +47,7 @@ function Footer() {
           />
         </Link>
       </Flex>
-      <Box textAlign="center">
+      <Box textAlign="center" pb={4}>
         <p>&copy; Little Lemon</p>
       </Box>
     </Box>

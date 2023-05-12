@@ -55,10 +55,10 @@ function Specials() {
         padding="1rem"
         paddingLeft={{ md: "3rem", lg: "5rem", xl: "10rem" }}
         paddingRight={{ md: "3rem", lg: "5rem", xl: "10rem" }}
-        marginTop="10px"
+        paddingTop="1.5rem"
       >
         <Text
-          fontSize={{ sm: "1rem", md: "2rem" }}
+          fontSize={{ sm: "1.5rem", md: "2rem" }}
           fontStyle={"italic"}
           color="white"
         >

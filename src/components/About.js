@@ -1,19 +1,17 @@
 import { Box, Container, Heading, Text, Image } from "@chakra-ui/react";
 import Chefs from "../assets/chefs.jpg";
 import { Link } from "react-router-dom";
-import basket1 from "../assets/basket .svg";
-import basket2 from "../assets/Basket.svg";
 
 const About = () => {
   return (
-    <Box backgroundColor="#FBDABB" height="100vh">
+    <Box backgroundColor="#FBDABB" minHeight="100vh" pb={8}>
       <Container
         paddingTop="1rem"
         maxW={{ base: "100%", md: "container.xl" }}
         px={4}
       >
         <Box display={{ md: "flex" }}>
-          <Box flex={{ md: 1 }} mr={{ md: 4 }} mb={{ base: 4, md: 0 }}>
+          <Box flex={{ md: 1 }} mr={{ md: 4 }} mb={{ base: 4, md: 0 }} pr={4}>
             <Heading as="h1" size="xl" mb={4} borderBottom={"1px solid black"}>
               About Little Lemon
             </Heading>
