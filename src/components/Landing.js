@@ -7,7 +7,11 @@ function Landing() {
   return (
     <>
       <Box className="landing-container">
-        <img className="landing-image" src={Image} alt="background" />
+        <img
+          className="landing-image"
+          src={Image}
+          alt="home page background image"
+        />
         <Box className="landing-description-container">
           <p>
             {`Thank you for visiting the Little Lemon! Our menu features a wide
