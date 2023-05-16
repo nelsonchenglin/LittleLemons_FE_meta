@@ -31,3 +31,12 @@ function Landing() {
 }
 
 export default Landing;
+
+persona
+https://www.figma.com/file/BVcT0ej7ymQV9hckuZ3K2c/Little-Lemon-projects-for-Meta?type=design&amp;node-id=0%3A1&amp;t=5AM35Xh7Nb1MfPdC-1
+
+wireframe figma
+https://www.figma.com/file/BVcT0ej7ymQV9hckuZ3K2c/Little-Lemon-projects-for-Meta?type=design&amp;node-id=0%3A1&amp;t=5AM35Xh7Nb1MfPdC-1
+
+prototype
+https://coursera-assessments.s3.amazonaws.com/assessments/1683901717264/74f5aee5-2ee7-4798-b9f9-6f10ae3af0e8/pdf24_merged.pdf
