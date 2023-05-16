@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/LittleLemons_FE_meta/static/css/main.ada14fd3.css",
+    "main.js": "/LittleLemons_FE_meta/static/js/main.a34cb09e.js",
+    "static/js/787.0330d870.chunk.js": "/LittleLemons_FE_meta/static/js/787.0330d870.chunk.js",
+    "static/media/chefs.jpg": "/LittleLemons_FE_meta/static/media/chefs.7f44c6d6e341a27d14b3.jpg",
+    "static/media/bruchetta.svg": "/LittleLemons_FE_meta/static/media/bruchetta.29ea078fea3d3120ed22402e901b5bbc.svg",
+    "static/media/greek salad.jpg": "/LittleLemons_FE_meta/static/media/greek salad.bed423a1fab5b210e347.jpg",
+    "static/media/landingBackground.jpeg": "/LittleLemons_FE_meta/static/media/landingBackground.0de99c1853b8cb6af2f4.jpeg",
+    "static/media/Logo.svg": "/LittleLemons_FE_meta/static/media/Logo.6c132dfefa69396bba43f72aa595e62f.svg",
+    "index.html": "/LittleLemons_FE_meta/index.html",
+    "main.ada14fd3.css.map": "/LittleLemons_FE_meta/static/css/main.ada14fd3.css.map",
+    "main.a34cb09e.js.map": "/LittleLemons_FE_meta/static/js/main.a34cb09e.js.map",
+    "787.0330d870.chunk.js.map": "/LittleLemons_FE_meta/static/js/787.0330d870.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ada14fd3.css",
+    "static/js/main.a34cb09e.js"
+  ]
+}
