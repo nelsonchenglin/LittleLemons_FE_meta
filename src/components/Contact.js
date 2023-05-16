@@ -15,8 +15,15 @@ const Contact = () => {
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (message.trim() === "") {
+      setError("Message field cannot be empty");
+      return;
+    }
+
     console.log("clicked");
     alert("Thank you for contacting us, we will get back to you soon!");
     setFormName("");
@@ -70,6 +77,11 @@ const Contact = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
+            {error && (
+              <Text color="red" mt={1}>
+                {error}
+              </Text>
+            )}
           </FormControl>
           <Button type="submit" mt={4} colorScheme="blue">
             Submit
