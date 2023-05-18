@@ -29,6 +29,9 @@ function Header() {
         justify="space-between"
         borderBottom="1px solid lightgray"
         backgroundColor="#EDEFEE"
+        as="nav"
+        role="navigation"
+        aria-label="Mobile Site Navigation Menu"
       >
         <Link to="/">
           <Image src={Logo} alt="logo" height={50} />
@@ -46,7 +49,7 @@ function Header() {
         <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
           <DrawerOverlay />
           <DrawerContent>
-            <DrawerCloseButton />
+            <DrawerCloseButton aria-label="Close navigation menu" />
 
             <VStack
               spacing="6"
@@ -81,6 +84,8 @@ function Header() {
           spacing="16"
           display={{ base: "none", md: "none", lg: "flex" }}
           fontWeight="semibold"
+          role="navigation"
+          aria-label="Desktop Navigation Menu"
         >
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
