@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react";
 import Contact from "./components/Contact";
 
-test("Form submits successfully when all fields are filled correctly", () => {
+test("Form submits successfully when filled correctly", () => {
   const formData = {
     formName: "John Doe",
     formEmail: "johndoe@jd.com",
@@ -12,7 +12,7 @@ test("Form submits successfully when all fields are filled correctly", () => {
   const setFormEmail = jest.fn();
   const setMessage = jest.fn();
   const alert = jest.spyOn(window, "alert");
-
+  alert.mockImplementation(() => {});
   const { getByLabelText, getByText } = render(
     <Contact
       setFormName={setFormName}
