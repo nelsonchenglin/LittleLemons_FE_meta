@@ -23,8 +23,6 @@ const Contact = () => {
       setError("Message field cannot be empty");
       return;
     }
-
-    console.log("clicked");
     alert("Thank you for contacting us, we will get back to you soon!");
     setFormName("");
     setFormEmail("");
@@ -58,7 +56,7 @@ const Contact = () => {
               pattern="^[A-za-z\s]+$"
               onChange={(e) => setFormName(e.target.value)}
               title="Alphabetical characters and spaces only."
-              aria-invalid={!name}
+              aria-required="true"
             />
           </FormControl>
           <FormControl id="formEmail" isRequired mt={4}>
@@ -68,6 +66,7 @@ const Contact = () => {
               borderColor="black"
               value={formEmail}
               onChange={(e) => setFormEmail(e.target.value)}
+              aria-required="true"
             />
           </FormControl>
           <FormControl id="message" isRequired mt={4}>
@@ -76,6 +75,7 @@ const Contact = () => {
               borderColor="black"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              aria-required="true"
             />
             {error && (
               <Text color="red" mt={1}>
